@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:life_track/pages/Landingpage.dart';
 import 'package:life_track/pages/loginPage.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const LoginPage(),
+      home: const LandingPage(),
       debugShowCheckedModeBanner: false,
     );
   }
