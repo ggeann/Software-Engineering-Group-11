@@ -89,12 +89,12 @@ class _ProfileState extends State<Profile> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF5B8FA8).withOpacity(0.12),
+                                color: const Color(0xFF006C4D).withOpacity(0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(
                                 Icons.monitor_weight,
-                                color: const Color(0xFF5B8FA8),
+                                color: const Color(0xFF006C4D),
                                 size: 20,
                               ),
                             ),
@@ -173,12 +173,12 @@ class _ProfileState extends State<Profile> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF5B8FA8).withOpacity(0.12),
+                                color: const Color(0xFF9C413F).withOpacity(0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(
                                 Icons.bolt,
-                                color: const Color(0xFF5B8FA8),
+                                color: const Color(0xFF9C413F),
                                 size: 20,
                               ),
                             ),
@@ -194,11 +194,16 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 40),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text('Your Biometrics')
+                    )
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 28),
             Row(
               children: const [
                 SizedBox(width: 10),
@@ -234,33 +239,41 @@ class _ProfileState extends State<Profile> {
                 SizedBox(width: 10),
               ],
             ),
-            Column(
-              children: [
-                SizedBox(height: 40),
-                Slider(
-                  label: liter.toDouble().toString(),
-                  value: liter.toDouble(),
-                  onChanged: (value) {
-                    setState(() {
-                      liter = value.toInt();
-                    });
-                  },
-                  min: 0,
-                  max: 6,
-                ),
-                SizedBox(height: 30),
-                Slider(
-                  label: steps.toDouble().toString(),
-                  value: steps.toDouble(),
-                  onChanged: (value) {
-                    setState(() {
-                      steps = value.toInt();
-                    });
-                  },
-                  min: 0,
-                  max: 6,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  SizedBox(height: 40),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Daily Targets')
+                  ),
+                  SizedBox(height: 30),
+                  Slider(
+                    label: liter.toDouble().toString(),
+                    value: liter.toDouble(),
+                    onChanged: (value) {
+                      setState(() {
+                        liter = value.toInt();
+                      });
+                    },
+                    min: 0,
+                    max: 6,
+                  ),
+                  SizedBox(height: 30),
+                  Slider(
+                    label: steps.toDouble().toString(),
+                    value: steps.toDouble(),
+                    onChanged: (value) {
+                      setState(() {
+                        steps = value.toInt();
+                      });
+                    },
+                    min: 0,
+                    max: 6,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
