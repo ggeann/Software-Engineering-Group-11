@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:life_track/pages/signupPage.dart';
 import 'UserDarboardpage.dart';
 
 class LandingPage extends StatelessWidget {
@@ -28,7 +29,13 @@ class LandingPage extends StatelessWidget {
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(5),
               ),
-              child: const Icon(Icons.favorite, color: themeGreen, size: 24),
+              child: ClipRRect(
+                borderRadius:BorderRadius.circular(5),
+                child:Image.asset(
+                  'images/LifeTrack.png',
+                  fit:BoxFit.cover,
+                )
+              ),
             ),
             const SizedBox(width: 12),
             const Text(
@@ -50,7 +57,7 @@ class LandingPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const UserDasboardpage(),
+                    builder: (context) => const SignupPage(),
                   ),
                 );
               },
@@ -74,9 +81,7 @@ class LandingPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ==========================================
             // SECTION 1: HERO IMAGE WITH OVERLAY TEXT
-            // ==========================================
             Stack(
               children: [
                 // Gambar utama latar belakang
@@ -93,7 +98,6 @@ class LandingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Efek gradasi gelap di bawah gambar agar teks lebih mudah dibaca
                 Container(
                   height: 450,
                   width: double.infinity,
@@ -109,7 +113,6 @@ class LandingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Teks yang menempel di atas gambar (posisi di bagian bawah Stack)
                 Positioned(
                   bottom: 20,
                   left: 20,
@@ -194,8 +197,6 @@ class LandingPage extends StatelessWidget {
                     style: TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                   const SizedBox(height: 25),
-
-                  // Mockup Tampilan Aplikasi di bagian paling bawah
                   Center(
                     child: Container(
                       width: double.infinity,
