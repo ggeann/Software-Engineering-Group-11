@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:life_track/pages/signupPage.dart';
-import 'UserDarboardpage.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -30,11 +29,8 @@ class LandingPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: ClipRRect(
-                borderRadius:BorderRadius.circular(5),
-                child:Image.asset(
-                  'images/LifeTrack.png',
-                  fit:BoxFit.cover,
-                )
+                borderRadius: BorderRadius.circular(5),
+                child: Image.asset('images/LifeTrack.png', fit: BoxFit.cover),
               ),
             ),
             const SizedBox(width: 12),
@@ -56,9 +52,7 @@ class LandingPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const SignupPage(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const SignupPage()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -88,12 +82,10 @@ class LandingPage extends StatelessWidget {
                 Container(
                   height: 450,
                   width: double.infinity,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     image: DecorationImage(
                       // Menggunakan gambar placeholder berkualitas tinggi bertema makanan sehat & fitness
-                      image: NetworkImage(
-                        'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600',
-                      ),
+                      image: AssetImage('images/lifetrack_landingpage.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -106,9 +98,14 @@ class LandingPage extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
+                        // Mengubah gradasi dari hitam tipis di atas, ke hitam agak tebal di bawah
                         Colors.black.withOpacity(0.1),
-                        Colors.white.withOpacity(0.8),
-                        themeBgLight,
+                        Colors.black.withOpacity(
+                          0.5,
+                        ), // Menggantikan putih tebal kemarin
+                        Colors.black.withOpacity(
+                          0.7,
+                        ), // Menggantikan themeBgLight agar bawahnya gelap eksklusif
                       ],
                     ),
                   ),
