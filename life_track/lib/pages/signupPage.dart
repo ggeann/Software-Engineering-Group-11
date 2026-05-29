@@ -9,10 +9,7 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-
-  void signUp() {
-
-  }
+  void signUp() {}
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +30,7 @@ class _SignupPageState extends State<SignupPage> {
           ),
 
           child: Center(
-              // padding: const EdgeInsets.only(left: 23),
+            // padding: const EdgeInsets.only(left: 23),
             child: SingleChildScrollView(
               child: Column(
                 spacing: 5,
@@ -44,7 +41,11 @@ class _SignupPageState extends State<SignupPage> {
                   _emailForm('Email address'),
                   _passwordForm('Password'),
                   Padding(
-                    padding: const EdgeInsets.only(left: 23, right: 23, top: 48),
+                    padding: const EdgeInsets.only(
+                      left: 23,
+                      right: 23,
+                      top: 48,
+                    ),
                     child: Container(
                       height: 56,
                       width: double.infinity,
@@ -57,11 +58,8 @@ class _SignupPageState extends State<SignupPage> {
                         },
                         child: Text(
                           'Sign Up',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18
-                          ),
-                        )
+                          style: TextStyle(color: Colors.black, fontSize: 18),
+                        ),
                       ),
                     ),
                   ),

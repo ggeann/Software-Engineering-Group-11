@@ -90,7 +90,7 @@ class LandingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
+                Container(  
                   height: 450,
                   width: double.infinity,
                   decoration: BoxDecoration(
