@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:life_track/pages/Landingpage.dart';
+import 'package:life_track/pages/UserDarboardpage.dart';
 // import 'package:life_track/pages/loginPage.dart';
 // import 'package:life_track/pages/profile.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const LandingPage(),
+      home: const UserDasboardpage(),
       debugShowCheckedModeBanner: false,
     );
   }
