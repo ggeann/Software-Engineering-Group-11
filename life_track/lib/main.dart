@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:life_track/pages/Landingpage.dart';
-import 'package:life_track/pages/loginPage.dart';
-import 'package:life_track/pages/profile.dart';
+// import 'package:life_track/pages/loginPage.dart';
+// import 'package:life_track/pages/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const LandingPage(),     
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      home: const LandingPage(),
       debugShowCheckedModeBanner: false,
     );
   }

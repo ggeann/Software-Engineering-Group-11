@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:life_track/pages/loginPage.dart';
 
+
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
 
