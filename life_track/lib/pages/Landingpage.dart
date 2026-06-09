@@ -122,7 +122,7 @@ class LandingPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 168, 160, 160),
                           height: 1.2,
                         ),
                       ),
@@ -131,7 +131,12 @@ class LandingPage extends StatelessWidget {
                         'The science-backed way to balance your nutrition, movements, and hydration in one serene interface.',
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.black.withOpacity(0.7),
+                          color: const Color.fromARGB(
+                            255,
+                            224,
+                            224,
+                            224,
+                          ).withOpacity(0.7),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
