@@ -57,85 +57,9 @@ class _UserDashboardpageState extends State<UserDashboardpage> {
           ],
         ),
       ),
-<<<<<<< HEAD
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // SECTION 1: HERO IMAGE WITH OVERLAY TEXT
-            Stack(
-              children: [
-                // Gambar utama latar belakang
-                Container(
-                  height: 450,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      // Menggunakan gambar placeholder berkualitas tinggi bertema makanan sehat & fitness
-                      image: AssetImage('images/lifetrack_landingpage.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 450,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        // Mengubah gradasi dari hitam tipis di atas, ke hitam agak tebal di bawah
-                        Colors.black.withOpacity(0.1),
-                        Colors.black.withOpacity(
-                          0.5,
-                        ), // Menggantikan putih tebal kemarin
-                        Colors.black.withOpacity(
-                          0.7,
-                        ), // Menggantikan themeBgLight agar bawahnya gelap eksklusif
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 20,
-                  left: 20,
-                  right: 20,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Your health,\nPerfectly Tracked',
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 168, 160, 160),
-                          height: 1.2,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'The science-backed way to balance your nutrition, movements, and hydration in one serene interface.',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: const Color.fromARGB(
-                            255,
-                            224,
-                            224,
-                            224,
-                          ).withOpacity(0.7),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-=======
->>>>>>> 83fdb736fb805a3b2f2d5981c21b2616c36d0435
-
-      // 3. Menampilkan halaman yang dinamis sesuai dengan tab yang dipilih
+      
+      // === PERBAIKAN BODY ===
+      // Menggunakan _pages agar halaman berubah secara dinamis saat BottomNavigationBar diklik
       body: _pages[_currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(
@@ -166,11 +90,12 @@ class _UserDashboardpageState extends State<UserDashboardpage> {
             icon: Icon(Icons.bar_chart),
             label: 'Progress',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );
-  }
+  } // Tanda kurung build yang sempat hilang sudah ditambahkan di sini
 }
 
 // === WIDGET BARU: KONTEN UTAMA DASHBOARD ===
