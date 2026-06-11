@@ -387,11 +387,8 @@ class _Progressnanalyticpage1State extends State<Progressnanalyticpage1> {
   Widget _buildBottomNavigationBar() {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: const Color(0xFFD3DDD3),
-      selectedItemColor: const Color(0xFF115D52),
-      unselectedItemColor: Colors.black,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
+      selectedItemColor: const Color(0xFF006B54),
+      unselectedItemColor: Colors.grey,
       currentIndex: 3,
       onTap: (index) => _navigateToPage(index),
       items: const [
@@ -400,7 +397,7 @@ class _Progressnanalyticpage1State extends State<Progressnanalyticpage1> {
           label: "Dashboard",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.food_bank_sharp),
+          icon: Icon(Icons.food_bank_rounded),
           label: 'Nutrition',
         ),
         BottomNavigationBarItem(  

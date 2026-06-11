@@ -283,7 +283,7 @@ class _UserdashboardpageState extends State<Userdashboardpage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: themeGreen,
+        selectedItemColor: const Color(0xFF006B54),
         unselectedItemColor: Colors.grey,
         currentIndex: _currentNavIndex,
         onTap: (index) => _navigateToPage(index),

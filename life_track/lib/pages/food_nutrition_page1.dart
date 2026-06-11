@@ -143,7 +143,35 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
           ),
         ),
       ),
-      bottomNavigationBar: _buildBottomNav(),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: const Color(0xFF006B54),
+        unselectedItemColor: Colors.grey,
+        currentIndex: _currentNavIndex,
+        onTap: (index) => _onNavTap(index),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard),
+            label: "Dashboard",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.food_bank_rounded),
+            label: 'Nutrition',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sports_gymnastics_rounded),
+            label: "Activity",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bar_chart),
+            label: 'Stats',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+      ),
     );
   }
 
@@ -366,54 +394,6 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
                 )).toList(),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildBottomNav() {
-    final items = [
-      (Icons.dashboard_outlined, Icons.dashboard, 'Dashboard'),
-      (Icons.restaurant_menu_outlined, Icons.restaurant_menu, 'Food'),
-      (Icons.directions_run_outlined, Icons.directions_run, 'Activity'),
-      (Icons.bar_chart_outlined, Icons.bar_chart, 'Progress'),
-      (Icons.person_outline_rounded, Icons.person_rounded, 'Profile'),
-    ];
-    return Container(
-      height: 68,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        border: Border(top: BorderSide(color: Color(0xFFEEF3EE), width: 1)),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: items.asMap().entries.map((e) {
-          final i = e.key;
-          final (icon, activeIcon, label) = e.value;
-          final isActive = i == _currentNavIndex;
-          return GestureDetector(
-            onTap: () => _onNavTap(i),
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-              decoration: BoxDecoration(
-                color: isActive ? const Color(0xFFE8F5EE) : Colors.transparent,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(isActive ? activeIcon : icon,
-                      size: 22, color: isActive ? const Color(0xFF0D6E5C) : const Color(0xFFAABBAA)),
-                  const SizedBox(height: 3),
-                  Text(label,
-                      style: TextStyle(fontSize: 10,
-                          fontWeight: isActive ? FontWeight.w700 : FontWeight.w400,
-                          color: isActive ? const Color(0xFF0D6E5C) : const Color(0xFFAABBAA))),
-                ],
-              ),
-            ),
-          );
-        }).toList(),
       ),
     );
   }
