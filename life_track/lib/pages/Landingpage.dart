@@ -57,7 +57,7 @@ class _UserDashboardpageState extends State<UserDashboardpage> {
           ],
         ),
       ),
-      
+
       // === PERBAIKAN BODY ===
       // Menggunakan _pages agar halaman berubah secara dinamis saat BottomNavigationBar diklik
       body: _pages[_currentIndex],
@@ -90,8 +90,7 @@ class _UserDashboardpageState extends State<UserDashboardpage> {
             icon: Icon(Icons.bar_chart),
             label: 'Progress',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );
@@ -302,3 +301,5 @@ class DashboardMainContent extends StatelessWidget {
     );
   }
 }
+
+// === CATATAN ===
