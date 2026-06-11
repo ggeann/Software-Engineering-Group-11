@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:life_track/pages/ActivityNHabit1.dart';
+import 'package:life_track/pages/UserDashboardpage.dart';
+// hide ActivityNHabitPage1;
+import 'package:life_track/pages/food_nutrition_page1.dart';
+import 'package:life_track/pages/profile.dart';
 
 class ProgressnAnalyticpage2 extends StatefulWidget {
   const ProgressnAnalyticpage2({Key? key}) : super(key: key);
@@ -9,6 +14,9 @@ class ProgressnAnalyticpage2 extends StatefulWidget {
 
 class _ProgressnAnalyticpage2State extends State<ProgressnAnalyticpage2> {
   // Grid data (28 hari), true berarti habit selesai (hijau)
+  final int _currentNavIndex = 0;
+
+  static const themeGreen = Color.fromARGB(255, 7, 100, 10);
   List<bool> habitStatus = List.generate(28, (index) => index < 18);
 
   @override
@@ -148,6 +156,59 @@ class _ProgressnAnalyticpage2State extends State<ProgressnAnalyticpage2> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: themeGreen,
+        unselectedItemColor: Colors.grey,
+        currentIndex: _currentNavIndex,
+        onTap: (index) => _navigateToPage(index),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard),
+            label: "Dashboard",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.food_bank_rounded),
+            label: 'Nutrition',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sports_gymnastics_rounded),
+            label: "Activity",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Stats'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+      ),
+    );
+  }
+
+  void _navigateToPage(int index) {
+    if (index == _currentNavIndex) return;
+
+    Widget targetPage;
+
+    switch (index) {
+      case 0:
+        targetPage = const Userdashboardpage();
+      case 1:
+        targetPage = const FoodNNutritionPage1();
+        break;
+      case 2:
+        targetPage = const ActivityNHabitPage1();
+        break;
+      case 3:
+        return;
+      case 4:
+        targetPage = const Profile();
+        break;
+      default:
+        return;
+    }
+
+    // Pindah halaman dengan menghapus halaman lama dari tumpukan (stack)
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => targetPage),
     );
   }
 }
