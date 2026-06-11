@@ -203,7 +203,7 @@ class _Progressnanalyticpage1State extends State<Progressnanalyticpage1> {
           ],
         ),
       ),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      // bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
