@@ -9,21 +9,24 @@ import '../widgets/food/meal_section.dart';
 import '../widgets/common/shimmer_loading.dart';
 
 class FoodNNutritionPage1 extends ConsumerStatefulWidget {
-  final VoidCallback? onNavigateToSearch;
-  final VoidCallback? onNavigateToHistory;
+  // Callback navigasi antar fitur utama (Bottom Nav)
   final VoidCallback? onNavigateToDashboard;
   final VoidCallback? onNavigateToActivity;
   final VoidCallback? onNavigateToProgress;
   final VoidCallback? onNavigateToProfile;
 
+  // Callback internal fitur Food & Nutrition (Ke Halaman 2 dan Halaman 3)
+  final VoidCallback? onNavigateToSearch; // Menuju Food & Nutrition Page 2 (Tambah Menu)
+  final VoidCallback? onNavigateToHistory; // Menuju Food & Nutrition Page 3 (Log/Update Detail)
+
   const FoodNNutritionPage1({
     super.key,
-    this.onNavigateToSearch,
-    this.onNavigateToHistory,
     this.onNavigateToDashboard,
     this.onNavigateToActivity,
     this.onNavigateToProgress,
     this.onNavigateToProfile,
+    this.onNavigateToSearch,
+    this.onNavigateToHistory,
   });
 
   @override
@@ -34,6 +37,8 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
     with SingleTickerProviderStateMixin {
   late AnimationController _animController;
   late Animation<double> _fadeAnim;
+  
+  // Indeks 1 merepresentasikan halaman "Food" pada susunan Bottom Navigation
   final int _currentNavIndex = 1;
 
   final List<_NotificationItem> _notifications = [
@@ -70,6 +75,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
               _buildTopBar(),
               Expanded(
                 child: RefreshIndicator(
+                  color: const Color(0xFF0D6E5C),
                   onRefresh: () async {
                     ref.invalidate(dailyBudgetProvider);
                     for (final type in MealType.values) {
@@ -84,10 +90,17 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
                         const SizedBox(height: 12),
                         _buildBudgetSection(),
                         const SizedBox(height: 8),
-                        FoodSearchBar(onTap: () => widget.onNavigateToSearch?.call()),
+                        
+                        // AKSI KE PAGE 2: Saat search bar di-tap, jalankan callback navigasi ke pencarian menu
+                        FoodSearchBar(
+                          onTap: () => widget.onNavigateToSearch?.call(),
+                        ),
+                        
                         const SizedBox(height: 8),
                         _buildMacrosSection(),
                         const SizedBox(height: 16),
+                        
+                        // SEKSI BREAKFAST (Memicu Page 2 untuk tambah makanan)
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: MealSection(
@@ -95,6 +108,8 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
                             onAddFood: () => widget.onNavigateToSearch?.call(),
                           ),
                         ),
+                        
+                        // SEKSI LUNCH (Memicu Page 2 untuk tambah makanan)
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: MealSection(
@@ -102,6 +117,8 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
                             onAddFood: () => widget.onNavigateToSearch?.call(),
                           ),
                         ),
+                        
+                        // SEKSI DINNER (Memicu Page 2 untuk tambah makanan)
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: MealSection(
@@ -109,6 +126,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
                             onAddFood: () => widget.onNavigateToSearch?.call(),
                           ),
                         ),
+                        
                         const SizedBox(height: 20),
                         _buildFooter(),
                         const SizedBox(height: 80),
@@ -132,7 +150,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: ShimmerLoading(height: 120, borderRadius: 16),
       ),
-      error: (_, _) => Padding(
+      error: (_, __) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: DailyBudgetCard(remaining: 0, goal: 2100),
       ),
@@ -158,7 +176,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: ShimmerLoading(height: 130, borderRadius: 16),
       ),
-      error: (_, _) => const MacrosCard(
+      error: (_, __) => const MacrosCard(
         proteinG: 0, carbsG: 0, fatsG: 0,
         proteinGoal: 120, carbsGoal: 250, fatsGoal: 70,
       ),
@@ -257,9 +275,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
                   TextButton(
                     onPressed: () {
                       setLocal(() {
-                        for (final n in _notifications) {
-                          n.isRead = true;
-                        }
+                        for (final n in _notifications) n.isRead = true;
                       });
                       setState(() {});
                     },
@@ -271,7 +287,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
               Expanded(
                 child: ListView.separated(
                   itemCount: _notifications.length,
-                  separatorBuilder: (_, _) => const Divider(height: 1, color: Color(0xFFF4F8F5)),
+                  separatorBuilder: (_, __) => const Divider(height: 1, color: Color(0xFFF4F8F5)),
                   itemBuilder: (_, i) {
                     final n = _notifications[i];
                     return ListTile(
@@ -319,7 +335,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
     return Center(
       child: Column(
         children: [
-          const Text('2024 LifeTrack Wellness. Optimistic health\nfor a better you.',
+          const Text('2026 LifeTrack Wellness. Optimistic health\nfor a better you.',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 11, color: Color(0xFFAABBAA))),
           const SizedBox(height: 6),
@@ -388,12 +404,14 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
   void _onNavTap(int index) {
     final callbacks = [
       widget.onNavigateToDashboard,
-      null, // Food — sudah di sini
+      null, // Index 1 adalah halaman Food (halaman ini sendiri)
       widget.onNavigateToActivity,
       widget.onNavigateToProgress,
       widget.onNavigateToProfile,
     ];
-    if (index == 1) return;
+    
+    if (index == _currentNavIndex) return;
+    
     final cb = callbacks[index];
     if (cb != null) {
       cb();

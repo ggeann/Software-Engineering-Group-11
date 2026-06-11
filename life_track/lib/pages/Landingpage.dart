@@ -1,305 +1,329 @@
-  import 'package:flutter/material.dart';
-  import 'package:life_track/pages/profile.dart';
-  import 'package:life_track/pages/food_nutrition_page1.dart';
-  import 'package:life_track/pages/ActivityNHabit1.dart';
-  import 'ProgressnAnalyticpage1.dart';
+import 'package:flutter/material.dart';
+import 'package:life_track/pages/signupPage.dart';
+// TODO: Jangan lupa import file signup_page kamu di sini, contoh:
+// import 'package:life_track/pages/signup_page.dart'; 
 
-  class Landingpage extends StatefulWidget {
-    const Landingpage({super.key});
+class Landingpage extends StatelessWidget {
+  const Landingpage({super.key});
 
-    @override
-    State<Landingpage> createState() => _LandingpageState();
-  }
+  @override
+  Widget build(BuildContext context) {
+    // Palet warna minimalis sesuai gambar Figma
+    const themeGreen = Color(0xFF005F43); 
+    const themeBgLight = Color(0xFFF7FBF7); 
+    const themeGreyCard = Color(0xFFE9EBE9); 
+    const tealPastel = Color(0xFF9EDCD0);
 
-  class _LandingpageState extends State<Landingpage> {
-    // Menjaga status halaman aktif (0 = Dashboard utama)
-    int _currentIndex = 0;
-
-    // 2. Daftarkan semua halaman ke dalam sebuah List widget
-    final List<Widget> _pages = [
-      const DashboardMainContent(),
-      const FoodNNutritionPage1(),
-      const ActivityNHabitPage1(),
-      const Progressnanalyticpage1(),
-      const Profile(),
-    ];
-
-    @override
-    Widget build(BuildContext context) {
-      const themeGreen = Color.fromARGB(255, 7, 100, 10);
-
-      return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-          toolbarHeight: 80,
-          title: Row(
-            children: [
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: const Icon(Icons.favorite, color: themeGreen, size: 24),
+    return Scaffold(
+      backgroundColor: themeBgLight,
+      // 1. APPBAR (Hanya Logo & Tombol Sign In)
+      appBar: AppBar(
+        backgroundColor: themeBgLight,
+        elevation: 0.0,
+        scrolledUnderElevation: 0,
+        toolbarHeight: 70,
+        titleSpacing: 20,
+        title: Row(
+          children: [
+            // Logo Kotak Hitam Minimalis Lifetrack
+            Container(
+              height: 36,
+              width: 36,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(4),
               ),
-              const SizedBox(width: 15),
-              const Text(
-                'LifeTrack',
-                style: TextStyle(
-                  color: themeGreen,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: const Icon(Icons.spa, color: Color(0xFF81C784), size: 18),
+            ),
+            const SizedBox(width: 10),
+            const Text(
+              'LifeTrack',
+              style: TextStyle(
+                color: themeGreen,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                letterSpacing: -0.5,
               ),
-            ],
-          ),
-        ),
-
-        // === PERBAIKAN BODY ===
-        // Menggunakan _pages agar halaman berubah secara dinamis saat BottomNavigationBar diklik
-        body: _pages[_currentIndex],
-
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: themeGreen,
-          unselectedItemColor: Colors.grey,
-          // 4. Hubungkan index aktif dan fungsi tap tombol navigasi
-          currentIndex: _currentIndex,
-          onTap: (int index) {
-            setState(() {
-              _currentIndex = index; // Mengubah halaman aktif saat ditekan
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),
-              label: "Dashboard",
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.food_bank_sharp),
-              label: 'Nutrition',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.sports_gymnastics_rounded),
-              label: "Activity",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.bar_chart),
-              label: 'Progress',
-            ),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ],
         ),
-      );
-    } // Tanda kurung build yang sempat hilang sudah ditambahkan di sini
-  }
+        actions: [
+          // === PERBAIKAN NAVIGASI DI SINI ===
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: SizedBox(
+              height: 36,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Berpindah ke halaman SignupPage saat tombol ditekan
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignupPage(), // Sesuaikan dengan nama class SignUp milikmu
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: themeGreen,
+                  foregroundColor: Colors.white,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                ),
+                child: const Text(
+                  'Sign In',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
 
-  // === WIDGET BARU: KONTEN UTAMA DASHBOARD ===
-  // Memindahkan isi body dashboard lama ke sini agar struktur kode bottom navbar bekerja sempurna
-  class DashboardMainContent extends StatelessWidget {
-    const DashboardMainContent({super.key});
-
-    @override
-    Widget build(BuildContext context) {
-      const themeGreen = Color.fromARGB(255, 7, 100, 10);
-      const themeGreyCard = Color(0xFFE0E0E0);
-      const themeGreenCard = Color(0xFFC8E6C9);
-
-      return SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+      // 2. BODY UTAMA LANDING PAGE
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 10),
-            const Text(
-              'Hello , John',
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 5),
-            const Text(
-              'Ready for your morning check-in?',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-            const SizedBox(height: 25),
-
-            // CARD CALORIES
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: themeGreyCard,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        'Calories',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '1,850 / 2,200 kcal',
-                        style: TextStyle(fontSize: 12, color: Colors.black54),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  const LinearProgressIndicator(
-                    value: 1.85 / 2.2,
-                    backgroundColor: Colors.white,
-                    valueColor: AlwaysStoppedAnimation<Color>(themeGreen),
-                    minHeight: 10,
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text('In: 1,850 kcal', style: TextStyle(fontSize: 12)),
-                      Text('Out: 420 kcal', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-
-            // ROW WATER & STEPS
-            Row(
+            // HERO SECTION (Gambar Makanan & Teks Utama)
+            Stack(
               children: [
-                Expanded(
-                  child: Container(
-                    height: 120,
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: themeGreyCard,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'Water',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Center(
-                          child: Icon(Icons.add, color: themeGreen, size: 30),
-                        ),
-                        SizedBox(height: 10),
-                        Center(
-                          child: Text(
-                            '5/10 glasses',
-                            style: TextStyle(fontSize: 12, color: Colors.black54),
-                          ),
-                        ),
-                      ],
+                Container(
+                  height: 460,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600',
+                      ),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Container(
-                    height: 120,
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: themeGreyCard,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Steps',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 5),
-                        const Text(
-                          'Morning run session',
-                          style: TextStyle(fontSize: 11, color: Colors.black87),
-                        ),
-                        const Text(
-                          '07:20 AM',
-                          style: TextStyle(fontSize: 11, color: Colors.black54),
-                        ),
-                        const SizedBox(height: 10),
-                        Center(
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: themeGreen,
-                              foregroundColor: Colors.white,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 5,
-                              ),
-                              minimumSize: Size.zero,
-                            ),
-                            child: const Text('Start'),
-                          ),
-                        ),
+                Container(
+                  height: 460,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.black.withOpacity(0.01),
+                        themeBgLight.withOpacity(0.4),
+                        themeBgLight,
                       ],
+                      stops: const [0.0, 0.7, 1.0],
                     ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 15,
+                  left: 20,
+                  right: 20,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      RichText(
+                        text: const TextSpan(
+                          style: TextStyle(
+                            fontSize: 34,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.black,
+                            height: 1.15,
+                            letterSpacing: -1,
+                          ),
+                          children: [
+                            TextSpan(text: 'Your health,\n'),
+                            TextSpan(
+                              text: 'Perfectly Tracked',
+                              style: TextStyle(color: themeGreen),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      const Text(
+                        'The science-backed way to balance your nutrition, movements, and hydration in one serene interface',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.w600,
+                          height: 1.4,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 20),
 
-            // WEEKLY MILESTONE
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: themeGreenCard,
-                borderRadius: BorderRadius.circular(10),
-              ),
+            // FEATURE CARDS SECTION
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Weekly Milestone',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  _buildFeatureCard(
+                    'Food',
+                    'Log your meals and track daily macros.',
+                    themeGreyCard,
                   ),
-                  const SizedBox(height: 5),
-                  const Text(
-                    'Your 10x more active than last week!!',
-                    style: TextStyle(fontSize: 13, color: Colors.black87),
+                  const SizedBox(height: 12),
+                  _buildFeatureCard(
+                    'Activity',
+                    'Record your workouts and active minutes.',
+                    themeGreyCard,
                   ),
-                  const SizedBox(height: 10),
-                  const Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'View detail ->',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: themeGreen,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                  const SizedBox(height: 12),
+                  _buildFeatureCard(
+                    'Hydration',
+                    'Track your water intake and stay refreshed.',
+                    themeGreyCard,
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 45),
+
+            // VISUAL CLARITY SECTION & MOCKUP HP TOSKA
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Visual Clarity in\nEvery Metric',
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.black,
+                      height: 1.15,
+                      letterSpacing: -0.5,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  const Text(
+                    'With our minimalism design we ensures you to see what matters most at a single glance',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
+                      height: 1.4,
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+
+                  // Kotak Toska Latar Belakang Mockup HP
+                  Container(
+                    width: double.infinity,
+                    height: 320,
+                    padding: const EdgeInsets.symmetric(vertical: 25),
+                    decoration: BoxDecoration(
+                      color: tealPastel, 
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    child: Center(
+                      child: Container(
+                        width: 155,
+                        height: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(24),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.08),
+                              blurRadius: 15,
+                              offset: const Offset(0, 8),
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text('LifeTrack', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Colors.black38)),
+                                  Icon(Icons.circle, size: 8, color: Colors.black26),
+                                ],
+                              ),
+                              const Spacer(),
+                              Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 85,
+                                    height: 85,
+                                    child: CircularProgressIndicator(
+                                      value: 0.65,
+                                      strokeWidth: 10,
+                                      backgroundColor: const Color(0xFFE0F2F1),
+                                      color: const Color(0xFF4DB6AC),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              Container(
+                                height: 12,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.black12, 
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                ],
+              ),
+            ),
           ],
         ),
-      );
-    }
+      ),
+    );
   }
 
-  // === CATATAN ===
+  // Komponen Card Fitur Kotak
+  Widget _buildFeatureCard(String title, String subtitle, Color bgColor) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              letterSpacing: -0.5,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            subtitle,
+            style: const TextStyle(
+              fontSize: 13,
+              color: Colors.black54,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

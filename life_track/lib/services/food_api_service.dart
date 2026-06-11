@@ -84,8 +84,8 @@ class FoodApiService {
 
   Future<MealLog> updateMealLog(String logId, {double? servingQty, String? notes}) async {
     final response = await _dio.put('/meals/$logId', data: {
-      'serving_qty': ?servingQty,
-      'notes': ?notes,
+      if (servingQty != null) 'serving_qty': servingQty,
+      if (notes != null) 'notes': notes,
     });
     return MealLog.fromJson(response.data['data']);
   }

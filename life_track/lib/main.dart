@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:life_track/pages/Landingpage.dart' show Landingpage, UserDashboardpage;
+import 'package:life_track/pages/Landingpage.dart' show Landingpage, Userdashboard;
 import 'package:life_track/pages/food_nutrition_page1.dart'
     show FoodNNutritionPage1;
 import 'package:life_track/pages/food_nutrition_page2.dart'

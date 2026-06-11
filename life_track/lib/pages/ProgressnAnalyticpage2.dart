@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProgressnAnalyticpage2 extends StatefulWidget {
-  const ProgressnAnalyticpage2({super.key});
+  const ProgressnAnalyticpage2({Key? key}) : super(key: key);
 
   @override
   _ProgressnAnalyticpage2State createState() => _ProgressnAnalyticpage2State();
