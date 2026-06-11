@@ -1,5 +1,9 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:life_track/pages/ProgressnAnalyticpage2.dart";
+import "package:life_track/pages/food_nutrition_page1.dart";
+import "package:life_track/pages/userdashboardpage.dart";
+import 'package:life_track/pages/ActivityNHabit1.dart';
 
 enum PrimaryGoal { loseWeight, stayFit, buildMuscle }
 
@@ -11,6 +15,8 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final int _currentNavIndex = 0;
+  static const themeGreen = Color.fromARGB(255, 7, 100, 10);
   PrimaryGoal? _option = PrimaryGoal.buildMuscle;
   int liter = 0;
   int steps = 0;
@@ -69,7 +75,8 @@ class _ProfileState extends State<Profile> {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Container( // list #1
+                    Container(
+                      // list #1
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(15),
@@ -89,7 +96,9 @@ class _ProfileState extends State<Profile> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF006C4D).withOpacity(0.12),
+                                color: const Color(
+                                  0xFF006C4D,
+                                ).withOpacity(0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(
@@ -103,7 +112,8 @@ class _ProfileState extends State<Profile> {
                                 title: Text("Lose Weight"),
                                 subtitle: Text("Sustainable fat loss focus"),
                                 value: PrimaryGoal.loseWeight,
-                                controlAffinity: ListTileControlAffinity.trailing,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
                               ),
                             ),
                           ],
@@ -111,7 +121,8 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    Container( // list #2
+                    Container(
+                      // list #2
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(15),
@@ -131,7 +142,9 @@ class _ProfileState extends State<Profile> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF5B8FA8).withOpacity(0.12),
+                                color: const Color(
+                                  0xFF5B8FA8,
+                                ).withOpacity(0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(
@@ -143,9 +156,12 @@ class _ProfileState extends State<Profile> {
                             Flexible(
                               child: RadioListTile<PrimaryGoal>(
                                 title: Text("Stay Fit"),
-                                subtitle: Text("Maintain current health levels"),
+                                subtitle: Text(
+                                  "Maintain current health levels",
+                                ),
                                 value: PrimaryGoal.stayFit,
-                                controlAffinity: ListTileControlAffinity.trailing,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
                               ),
                             ),
                           ],
@@ -153,7 +169,8 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    Container( // list #3
+                    Container(
+                      // list #3
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(15),
@@ -173,7 +190,9 @@ class _ProfileState extends State<Profile> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF9C413F).withOpacity(0.12),
+                                color: const Color(
+                                  0xFF9C413F,
+                                ).withOpacity(0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(
@@ -187,7 +206,8 @@ class _ProfileState extends State<Profile> {
                                 title: Text("Lose Build Muscle"),
                                 subtitle: Text("Strength & hyperthrophy"),
                                 value: PrimaryGoal.buildMuscle,
-                                controlAffinity: ListTileControlAffinity.trailing,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
                               ),
                             ),
                           ],
@@ -197,8 +217,8 @@ class _ProfileState extends State<Profile> {
                     SizedBox(height: 40),
                     Align(
                       alignment: Alignment.centerLeft,
-                      child: Text('Your Biometrics')
-                    )
+                      child: Text('Your Biometrics'),
+                    ),
                   ],
                 ),
               ),
@@ -246,7 +266,7 @@ class _ProfileState extends State<Profile> {
                   SizedBox(height: 40),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Daily Targets')
+                    child: Text('Daily Targets'),
                   ),
                   SizedBox(height: 30),
                   Slider(
@@ -278,32 +298,60 @@ class _ProfileState extends State<Profile> {
           ],
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: 4,
-      //   type: BottomNavigationBarType.fixed,
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //       label: "Dashboard",
-      //       icon: Icon(CupertinoIcons.square_split_2x2_fill),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       label: "Food",
-      //       icon: Icon(CupertinoIcons.largecircle_fill_circle),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       label: "Activity",
-      //       icon: Icon(CupertinoIcons.brightness),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       label: "Progress",
-      //       icon: Icon(CupertinoIcons.chart_bar_alt_fill),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       label: "Profile",
-      //       icon: Icon(CupertinoIcons.person_fill),
-      //     ),
-      //   ],
-      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: themeGreen,
+        unselectedItemColor: Colors.grey,
+        currentIndex: _currentNavIndex,
+        onTap: (index) => _navigateToPage(index),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard),
+            label: "Dashboard",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.food_bank_rounded),
+            label: 'Nutrition',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sports_gymnastics_rounded),
+            label: "Activity",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Stats'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+      ),
+    );
+  }
+
+  void _navigateToPage(int index) {
+    if (index == _currentNavIndex) return;
+
+    Widget targetPage;
+
+    switch (index) {
+      case 0:
+        targetPage = const Userdashboardpage();
+      case 1:
+        targetPage = const FoodNNutritionPage1();
+        break;
+      case 2:
+        targetPage = const ActivityNHabitPage1();
+        break;
+      case 3:
+        targetPage = const ProgressnAnalyticpage2();
+        break;
+      case 4:
+        targetPage = const Profile();
+        break;
+      default:
+        return;
+    }
+
+    // Pindah halaman dengan menghapus halaman lama dari tumpukan (stack)
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => targetPage),
     );
   }
 }

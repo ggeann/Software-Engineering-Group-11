@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:life_track/pages/ProgressnAnalyticpage2.dart';
 
 import 'food_nutrition_page1.dart';
 import 'ActivityNHabit1.dart';
+import 'package:life_track/pages/ActivityNHabit1.dart';
+
 import 'ProgressnAnalyticpage1.dart';
 import 'profile.dart';
 
@@ -323,10 +326,10 @@ class _UserdashboardpageState extends State<Userdashboardpage> {
         targetPage = const ActivityNHabitPage1();
         break;
       case 3:
-        targetPage = const ProgressNAnalyticPage1();
+        targetPage = const ProgressnAnalyticpage2();
         break;
       case 4:
-        targetPage = const ProfilePage();
+        targetPage = const Profile();
         break;
       default:
         return;
@@ -346,12 +349,12 @@ class _UserdashboardpageState extends State<Userdashboardpage> {
 // file aslinya dan meng-import-nya di bagian atas file ini.
 // =========================================================================
 
-class ActivityNHabitPage1 extends StatelessWidget {
-  const ActivityNHabitPage1({super.key});
-  @override
-  Widget build(BuildContext context) =>
-      const Scaffold(body: Center(child: Text('Activity & Habit Page 1')));
-}
+// class ActivityNHabitPage1 extends StatelessWidget {
+//   const ActivityNHabitPage1({super.key});
+//   @override
+//   Widget build(BuildContext context) =>
+//       const Scaffold(body: Center(child: Text('Activity & Habit Page 1')));
+// }
 
 class ProgressNAnalyticPage1 extends StatelessWidget {
   const ProgressNAnalyticPage1({super.key});
