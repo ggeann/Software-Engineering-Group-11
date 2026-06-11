@@ -136,7 +136,7 @@ class _ActivityNHabitPage3State extends State<ActivityNHabitPage3> {
                               ),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.03),
+                                  color: Colors.black.withValues(alpha: 0.03),
                                   blurRadius: 10,
                                   offset: const Offset(0, 4),
                                 ),
@@ -197,7 +197,7 @@ class _ActivityNHabitPage3State extends State<ActivityNHabitPage3> {
                                 else
                                   Icon(
                                     Icons.circle_outlined,
-                                    color: Colors.black.withOpacity(0.1),
+                                    color: Colors.black.withValues(alpha: 0.1),
                                     size: 28,
                                   ),
                               ],
@@ -218,7 +218,7 @@ class _ActivityNHabitPage3State extends State<ActivityNHabitPage3> {
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withValues(alpha: 0.05),
                     blurRadius: 10,
                     offset: const Offset(0, -5),
                   ),

@@ -75,7 +75,7 @@ class _ProfileState extends State<Profile> {
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
+                            color: Colors.grey.withValues(alpha: 0.1),
                             spreadRadius: 1,
                             blurRadius: 1,
                             // offset: Offset(0, 1),
@@ -89,7 +89,7 @@ class _ProfileState extends State<Profile> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF006C4D).withOpacity(0.12),
+                                color: const Color(0xFF006C4D).withValues(alpha: 0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(
@@ -117,7 +117,7 @@ class _ProfileState extends State<Profile> {
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
+                            color: Colors.grey.withValues(alpha: 0.1),
                             spreadRadius: 1,
                             blurRadius: 1,
                             // offset: Offset(0, 4),
@@ -131,7 +131,7 @@ class _ProfileState extends State<Profile> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF5B8FA8).withOpacity(0.12),
+                                color: const Color(0xFF5B8FA8).withValues(alpha: 0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(
@@ -159,7 +159,7 @@ class _ProfileState extends State<Profile> {
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
+                            color: Colors.grey.withValues(alpha: 0.1),
                             spreadRadius: 1,
                             blurRadius: 1,
                             // offset: Offset(0, 4),
@@ -173,7 +173,7 @@ class _ProfileState extends State<Profile> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF9C413F).withOpacity(0.12),
+                                color: const Color(0xFF9C413F).withValues(alpha: 0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(

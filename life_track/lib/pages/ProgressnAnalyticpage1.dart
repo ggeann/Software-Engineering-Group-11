@@ -4,7 +4,7 @@ import 'package:life_track/pages/ProgressnAnalyticpage2.dart';
 // import 'package:flutter_application_1/ProgressnAnalyticpage2.dart';
 
 class Progressnanalyticpage1 extends StatefulWidget {
-  const Progressnanalyticpage1({Key? key}) : super(key: key);
+  const Progressnanalyticpage1({super.key});
 
   @override
   _Progressnanalyticpage1State createState() => _Progressnanalyticpage1State();
@@ -39,7 +39,7 @@ class _Progressnanalyticpage1State extends State<Progressnanalyticpage1> {
             const Text(
               "LifeTrack",
               style: TextStyle(
-                color: const Color(0xFF115D52),
+                color: Color(0xFF115D52),
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
@@ -84,7 +84,7 @@ class _Progressnanalyticpage1State extends State<Progressnanalyticpage1> {
               value: "72.4 kg",
               subtext: "72.4 kg (-1.2 kg trend)",
               chipText: "Stable",
-              chipColor: Colors.blue.withOpacity(0.1),
+              chipColor: Colors.blue.withValues(alpha: 0.1),
               bars: [0.75, 0.65, 0.55],
               labels: ["74kg", "73,5kg", "72kg"],
               barColor: const Color(0xFF3A6073),

@@ -46,7 +46,7 @@ class FoodLogTile extends ConsumerWidget {
                   ],
                 ),
               ),
-              Text('${log.calories.toStringAsFixed(0)}',
+              Text(log.calories.toStringAsFixed(0),
                   style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Color(0xFF0D6E5C))),
             ],
           ),

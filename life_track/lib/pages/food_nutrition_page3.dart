@@ -74,7 +74,7 @@ class _FoodNNutritionPage3State extends ConsumerState<FoodNNutritionPage3> {
                         padding: EdgeInsets.symmetric(horizontal: 16),
                         child: ShimmerLoading(height: 160, borderRadius: 16),
                       ),
-                      error: (_, __) => const SizedBox.shrink(),
+                      error: (_, _) => const SizedBox.shrink(),
                     ),
                     historyAsync.when(
                       data: (logs) => _buildHistoryContent(logs),

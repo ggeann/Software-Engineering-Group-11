@@ -34,7 +34,7 @@ class FoodResultsList extends StatelessWidget {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemCount: foods.length,
-      separatorBuilder: (_, __) => const Divider(height: 1, indent: 16, endIndent: 16),
+      separatorBuilder: (_, _) => const Divider(height: 1, indent: 16, endIndent: 16),
       itemBuilder: (_, i) {
         final food = foods[i];
         return ListTile(

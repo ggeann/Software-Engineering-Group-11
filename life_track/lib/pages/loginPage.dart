@@ -24,10 +24,10 @@ class _LoginPageState extends State<LoginPage> {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: const Color(0xFFFFFFFFF),
+            color: const Color(0xfffffffff),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.04),
+                color: Colors.black.withValues(alpha: 0.04),
                 blurRadius: 11,
                 spreadRadius: 6
               )
@@ -68,12 +68,12 @@ class _LoginPageState extends State<LoginPage> {
                       _passwordForm('Password'),
                       Padding(
                         padding: const EdgeInsets.only(left: 23, right: 23, top: 32),
-                        child: Container(
+                        child: SizedBox(
                           height: 56,
                           width: double.infinity,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFFF3EB489),
+                              backgroundColor: const Color(0xfff3eb489),
                             ),
                             onPressed: () {
                               signIn();

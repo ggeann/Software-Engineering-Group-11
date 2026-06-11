@@ -138,7 +138,7 @@ class _ActivityNHabitPage1State extends State<ActivityNHabitPage1> {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.03),
+                      color: Colors.black.withValues(alpha: 0.03),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -177,7 +177,7 @@ class _ActivityNHabitPage1State extends State<ActivityNHabitPage1> {
                                 'kcal',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.black.withOpacity(0.5),
+                                  color: Colors.black.withValues(alpha: 0.5),
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -247,7 +247,7 @@ class _ActivityNHabitPage1State extends State<ActivityNHabitPage1> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: const Color(0xFF006B54).withOpacity(0.3),
+                      color: const Color(0xFF006B54).withValues(alpha: 0.3),
                       style: BorderStyle.solid,
                     ),
                   ),
@@ -260,7 +260,7 @@ class _ActivityNHabitPage1State extends State<ActivityNHabitPage1> {
                         'Log your activity',
                         style: TextStyle(
                           fontSize: 16,
-                          color: const Color(0xFF006B54).withOpacity(0.9),
+                          color: const Color(0xFF006B54).withValues(alpha: 0.9),
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -309,7 +309,7 @@ class _ActivityNHabitPage1State extends State<ActivityNHabitPage1> {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.03),
+                      color: Colors.black.withValues(alpha: 0.03),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -381,13 +381,13 @@ class _ActivityNHabitPage1State extends State<ActivityNHabitPage1> {
                             Icon(
                               Icons.add,
                               size: 18,
-                              color: Colors.black.withOpacity(0.4),
+                              color: Colors.black.withValues(alpha: 0.4),
                             ),
                             const SizedBox(width: 6),
                             Text(
                               'Set your habit',
                               style: TextStyle(
-                                color: Colors.black.withOpacity(0.5),
+                                color: Colors.black.withValues(alpha: 0.5),
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -454,7 +454,7 @@ class _ActivityNHabitPage1State extends State<ActivityNHabitPage1> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),

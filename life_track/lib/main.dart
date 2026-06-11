@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:life_track/pages/Landingpage.dart' show UserDashboardpage;
-import 'package:life_track/pages/food_nutrition_page1.dart' show FoodNNutritionPage1;
-import 'package:life_track/pages/food_nutrition_page2.dart' show FoodNNutritionPage2;
-import 'package:life_track/pages/food_nutrition_page3.dart' show FoodNNutritionPage3;
+import 'package:life_track/pages/Landingpage.dart' show Landingpage, UserDashboardpage;
+import 'package:life_track/pages/food_nutrition_page1.dart'
+    show FoodNNutritionPage1;
+import 'package:life_track/pages/food_nutrition_page2.dart'
+    show FoodNNutritionPage2;
+import 'package:life_track/pages/food_nutrition_page3.dart'
+    show FoodNNutritionPage3;
 import 'package:life_track/models/meal_type.dart' show MealType;
 
 void main() async {
@@ -37,14 +40,20 @@ class LifeTrackApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const UserDashboardpage(),
+        '/': (context) => const Landingpage(),
         '/food1': (context) => FoodNNutritionPage1(
-              onNavigateToSearch: () => Navigator.pushNamed(context, '/food2', arguments: MealType.breakfast),
-              onNavigateToHistory: () => Navigator.pushNamed(context, '/food3'),
-            ),
+          onNavigateToSearch: () => Navigator.pushNamed(
+            context,
+            '/food2',
+            arguments: MealType.breakfast,
+          ),
+          onNavigateToHistory: () => Navigator.pushNamed(context, '/food3'),
+        ),
         '/food2': (context) => FoodNNutritionPage2(
-              targetMealType: ModalRoute.of(context)?.settings.arguments as MealType? ?? MealType.breakfast,
-            ),
+          targetMealType:
+              ModalRoute.of(context)?.settings.arguments as MealType? ??
+              MealType.breakfast,
+        ),
         '/food3': (context) => const FoodNNutritionPage3(),
       },
     );

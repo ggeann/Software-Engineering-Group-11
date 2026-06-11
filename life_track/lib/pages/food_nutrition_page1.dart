@@ -34,7 +34,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
     with SingleTickerProviderStateMixin {
   late AnimationController _animController;
   late Animation<double> _fadeAnim;
-  int _currentNavIndex = 1;
+  final int _currentNavIndex = 1;
 
   final List<_NotificationItem> _notifications = [
     _NotificationItem(title: 'Reminder', body: "Don't forget to log your dinner!", time: '5m ago'),
@@ -132,7 +132,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: ShimmerLoading(height: 120, borderRadius: 16),
       ),
-      error: (_, __) => Padding(
+      error: (_, _) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: DailyBudgetCard(remaining: 0, goal: 2100),
       ),
@@ -158,7 +158,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: ShimmerLoading(height: 130, borderRadius: 16),
       ),
-      error: (_, __) => const MacrosCard(
+      error: (_, _) => const MacrosCard(
         proteinG: 0, carbsG: 0, fatsG: 0,
         proteinGoal: 120, carbsGoal: 250, fatsGoal: 70,
       ),
@@ -257,7 +257,9 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
                   TextButton(
                     onPressed: () {
                       setLocal(() {
-                        for (final n in _notifications) n.isRead = true;
+                        for (final n in _notifications) {
+                          n.isRead = true;
+                        }
                       });
                       setState(() {});
                     },
@@ -269,7 +271,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
               Expanded(
                 child: ListView.separated(
                   itemCount: _notifications.length,
-                  separatorBuilder: (_, __) => const Divider(height: 1, color: Color(0xFFF4F8F5)),
+                  separatorBuilder: (_, _) => const Divider(height: 1, color: Color(0xFFF4F8F5)),
                   itemBuilder: (_, i) {
                     final n = _notifications[i];
                     return ListTile(
