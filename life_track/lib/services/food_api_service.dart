@@ -10,7 +10,7 @@ import '../models/meal_type.dart';
 class FoodApiService {
   final Dio _dio;
   final SupabaseClient _supabase;
-  static const String _baseUrl = 'https://your-backend.com/api/v1';
+  static const String _baseUrl = 'http://localhost:3000/api/v1';
 
   FoodApiService({required SupabaseClient supabase})
       : _supabase = supabase,
