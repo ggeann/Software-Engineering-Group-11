@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:life_track/pages/profile.dart';
-// import 'FoodNNutritionpage.dart';
-// import 'ActivityNHabitpage.dart';
+import 'package:life_track/pages/food_nutrition_page1.dart';
+import 'package:life_track/pages/ActivityNHabit1.dart';
 import 'ProgressnAnalyticpage1.dart';
 
 class UserDashboardpage extends StatefulWidget {
@@ -17,11 +17,11 @@ class _UserDashboardpageState extends State<UserDashboardpage> {
 
   // 2. Daftarkan semua halaman ke dalam sebuah List widget
   final List<Widget> _pages = [
-    const DashboardMainContent(), // Isi konten utama dashboard dipindah ke widget bawah
-    // const Food(), // Halaman Food & Nutrition yang baru dibuat
-    // const ActivityNHabitpage(), // Halaman Activity & Habit placeholder
-    const Progressnanalyticpage1(), // Halaman Progress & Analytic placeholder
-    const Profile(), // Halaman Profile
+    const DashboardMainContent(),
+    const FoodNNutritionPage1(),
+    const ActivityNHabitPage1(),
+    const Progressnanalyticpage1(),
+    const Profile(),
   ];
 
   @override
