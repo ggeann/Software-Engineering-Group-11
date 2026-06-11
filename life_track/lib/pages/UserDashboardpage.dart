@@ -18,16 +18,31 @@ class Userdashboardpage extends StatelessWidget {
         toolbarHeight: 80, // Sedikit lebih tinggi untuk menampung logo
         title: Row(
           children: [
-            // Container untuk simulasi Logo di gambar
-            Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                color: Colors.black, // Background logo hitam
-                borderRadius: BorderRadius.circular(5),
+            // --- BAGIAN YANG DIUBAH: Mengganti Icon Love dengan Logo LifeTrack ---
+            ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: Image.asset(
+                'images/LifeTrack.png',
+                height: 40,
+                width: 40,
+                fit:
+                    BoxFit.cover, // Memastikan gambar pas di dalam ukuran 40x40
+                errorBuilder: (context, error, stackTrace) => Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Icon(
+                    Icons.broken_image,
+                    color: themeGreen,
+                    size: 24,
+                  ),
+                ),
               ),
-              child: const Icon(Icons.favorite, color: themeGreen, size: 24),
             ),
+            // ---------------------------------------------------------------------
             const SizedBox(width: 15),
             const Text(
               'LifeTrack',
@@ -79,7 +94,9 @@ class Userdashboardpage extends StatelessWidget {
                       Text(
                         'Calories',
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Text(
                         '1,850 / 2,200 kcal',
@@ -126,7 +143,9 @@ class Userdashboardpage extends StatelessWidget {
                         Text(
                           'Water',
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         SizedBox(height: 10),
                         Center(
@@ -136,8 +155,10 @@ class Userdashboardpage extends StatelessWidget {
                         Center(
                           child: Text(
                             '5/10 glasses',
-                            style:
-                                TextStyle(fontSize: 12, color: Colors.black54),
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black54,
+                            ),
                           ),
                         ),
                       ],
@@ -160,7 +181,9 @@ class Userdashboardpage extends StatelessWidget {
                         const Text(
                           'Steps',
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         const SizedBox(height: 5),
                         const Text(
@@ -179,7 +202,9 @@ class Userdashboardpage extends StatelessWidget {
                               backgroundColor: themeGreen,
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 5),
+                                horizontal: 20,
+                                vertical: 5,
+                              ),
                               minimumSize: Size.zero, // Mengecilkan tombol
                             ),
                             child: const Text('Start'),
@@ -219,9 +244,10 @@ class Userdashboardpage extends StatelessWidget {
                     child: Text(
                       'View detail ->',
                       style: TextStyle(
-                          fontSize: 12,
-                          color: themeGreen,
-                          fontWeight: FontWeight.w600),
+                        fontSize: 12,
+                        color: themeGreen,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ],
@@ -241,22 +267,13 @@ class Userdashboardpage extends StatelessWidget {
             icon: Icon(Icons.dashboard),
             label: "Dashboard",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
             icon: Icon(Icons.sports_gymnastics_rounded),
             label: "Activity",
-            ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart),
-            label: 'Stats',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Stats'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );
