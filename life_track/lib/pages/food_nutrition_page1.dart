@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:life_track/pages/ActivityNHabit1.dart';
+import 'package:life_track/pages/ProgressnAnalyticpage1.dart';
 import 'package:life_track/pages/ProgressnAnalyticpage2.dart';
 import 'package:life_track/pages/UserDashboardpage.dart'
     hide ActivityNHabitPage1;
@@ -589,7 +590,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
         targetPage = const ActivityNHabitPage1();
         break;
       case 3:
-        targetPage = const ProgressnAnalyticpage2();
+        targetPage = const Progressnanalyticpage1();
         break;
       case 4:
         targetPage = const Profile();

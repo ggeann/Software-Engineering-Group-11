@@ -3,6 +3,7 @@ import 'package:life_track/pages/ActivityNHabit1.dart';
 import 'package:life_track/pages/ProgressnAnalyticpage2.dart';
 import 'package:life_track/pages/UserDashboardpage.dart';
 import 'package:life_track/pages/food_nutrition_page1.dart';
+import 'package:life_track/pages/profile.dart';
 // import 'package:flutter_application_1/ProgressnAnalyticpage1.dart';
 // import 'package:flutter_application_1/ProgressnAnalyticpage2.dart';
 
@@ -251,7 +252,7 @@ class _Progressnanalyticpage1State extends State<Progressnanalyticpage1> {
       case 3:
         return;
       case 4:
-        targetPage = const ProfilePage();
+        targetPage = const Profile();
         break;
       default:
         return;

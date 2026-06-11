@@ -1,8 +1,9 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:life_track/pages/ProgressnAnalyticpage1.dart";
 import "package:life_track/pages/ProgressnAnalyticpage2.dart";
 import "package:life_track/pages/food_nutrition_page1.dart";
-import "package:life_track/pages/userdashboardpage.dart";
+import "package:life_track/pages/userdashboardpage.dart" hide ActivityNHabitPage1;
 import 'package:life_track/pages/ActivityNHabit1.dart';
 
 enum PrimaryGoal { loseWeight, stayFit, buildMuscle }
@@ -339,7 +340,7 @@ class _ProfileState extends State<Profile> {
         targetPage = const ActivityNHabitPage1();
         break;
       case 3:
-        targetPage = const ProgressnAnalyticpage2();
+        targetPage = const Progressnanalyticpage1();
         break;
       case 4:
         targetPage = const Profile();

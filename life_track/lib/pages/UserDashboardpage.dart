@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:life_track/pages/ProgressnAnalyticpage2.dart';
+import 'package:life_track/pages/ProgressnAnalyticpage1.dart';
 
 import 'food_nutrition_page1.dart';
 import 'ActivityNHabit1.dart';
@@ -326,7 +327,7 @@ class _UserdashboardpageState extends State<Userdashboardpage> {
         targetPage = const ActivityNHabitPage1();
         break;
       case 3:
-        targetPage = const ProgressnAnalyticpage2();
+        targetPage = const Progressnanalyticpage1();
         break;
       case 4:
         targetPage = const Profile();
@@ -356,16 +357,16 @@ class _UserdashboardpageState extends State<Userdashboardpage> {
 //       const Scaffold(body: Center(child: Text('Activity & Habit Page 1')));
 // }
 
-class ProgressNAnalyticPage1 extends StatelessWidget {
-  const ProgressNAnalyticPage1({super.key});
-  @override
-  Widget build(BuildContext context) =>
-      const Scaffold(body: Center(child: Text('Progress & Analytic Page 1')));
-}
+// class ProgressNAnalyticPage1 extends StatelessWidget {
+//   const ProgressNAnalyticPage1({super.key});
+//   @override
+//   Widget build(BuildContext context) =>
+//       const Scaffold(body: Center(child: Text('Progress & Analytic Page 1')));
+// }
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-  @override
-  Widget build(BuildContext context) =>
-      const Scaffold(body: Center(child: Text('Profile Page')));
-}
+// class ProfilePage extends StatelessWidget {
+//   const ProfilePage({super.key});
+//   @override
+//   Widget build(BuildContext context) =>
+//       const Scaffold(body: Center(child: Text('Profile Page')));
+// }
