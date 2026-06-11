@@ -278,32 +278,32 @@ class _ProfileState extends State<Profile> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 4,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            label: "Dashboard",
-            icon: Icon(CupertinoIcons.square_split_2x2_fill),
-          ),
-          BottomNavigationBarItem(
-            label: "Food",
-            icon: Icon(CupertinoIcons.largecircle_fill_circle),
-          ),
-          BottomNavigationBarItem(
-            label: "Activity",
-            icon: Icon(CupertinoIcons.brightness),
-          ),
-          BottomNavigationBarItem(
-            label: "Progress",
-            icon: Icon(CupertinoIcons.chart_bar_alt_fill),
-          ),
-          BottomNavigationBarItem(
-            label: "Profile",
-            icon: Icon(CupertinoIcons.person_fill),
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   currentIndex: 4,
+      //   type: BottomNavigationBarType.fixed,
+      //   items: const [
+      //     BottomNavigationBarItem(
+      //       label: "Dashboard",
+      //       icon: Icon(CupertinoIcons.square_split_2x2_fill),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       label: "Food",
+      //       icon: Icon(CupertinoIcons.largecircle_fill_circle),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       label: "Activity",
+      //       icon: Icon(CupertinoIcons.brightness),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       label: "Progress",
+      //       icon: Icon(CupertinoIcons.chart_bar_alt_fill),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       label: "Profile",
+      //       icon: Icon(CupertinoIcons.person_fill),
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

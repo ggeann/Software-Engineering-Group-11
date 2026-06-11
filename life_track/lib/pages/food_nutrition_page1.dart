@@ -121,7 +121,7 @@ class _FoodNNutritionPage1State extends ConsumerState<FoodNNutritionPage1>
           ),
         ),
       ),
-      bottomNavigationBar: _buildBottomNav(),
+      // bottomNavigationBar: _buildBottomNav(),
     );
   }
 
